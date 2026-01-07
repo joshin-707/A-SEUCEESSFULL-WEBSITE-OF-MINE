@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>SGJ Networking and Cabling</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <header class="hero">
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#electrical" class="tab active">Electrical</a></li>
+                <li><a href="#cabling" class="tab">Cabling</a></li>
+                <li><a href="#carpentry" class="tab">Carpentry</a></li>
+                <li><a href="#plumbing" class="tab">Plumbing</a></li>
+            </ul>
+        </nav>
+        <div class="hero-content">
+            <h1>SGJ Networking and Cabling</h1>
+            <p class="tagline">Providing electrical, cabling, carpentry & plumbing services</p>
+            <div class="hero-buttons">
+                <button>Book Now</button>
+                <button onclick="location.href='#reviews'">Customer Reviews</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Electrical Section -->
+        <section id="electrical" class="service-section">
+            <h2>Please select an electrician:</h2>
+            <div class="worker-cards">
+                <div class="worker-card" onclick="openModal('Bala')">👷 Bala</div>
+                <div class="worker-card" onclick="openModal('Raju')">👷 Raju</div>
+            </div>
+        </section>
+
+        <!-- Cabling Section -->
+        <section id="cabling" class="service-section">
+            <h2>Cabling Services</h2>
+            <div class="service-cards">
+                <div class="service-card">
+                    <h3>LAN Cabling</h3>
+                    <p>Structured LAN wiring solutions.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Fiber Optic</h3>
+                    <p>High-speed fiber optic installation.</p>
+                </div>
+                <div class="service-card">
+                    <h3>CCTV</h3>
+                    <p>Surveillance camera cabling and setup.</p>
+                </div>
+                <div class="service-card">
+                    <h3>WiFi Networking</h3>
+                    <p>Wireless network setup & optimization.</p>
+                </div>
+            </div>
+            <h2>Please select a technician:</h2>
+            <div class="worker-cards">
+                <div class="worker-card" onclick="openModal('Saravanan')">👷 Saravanan</div>
+                <div class="worker-card" onclick="openModal('Kishore')">👷 Kishore</div>
+            </div>
+        </section>
+
+        <!-- Carpentry Section -->
+        <section id="carpentry" class="service-section">
+            <h2>Please select a carpenter:</h2>
+            <div class="worker-cards">
+                <div class="worker-card" onclick="openModal('Guru')">👷 Guru</div>
+                <div class="worker-card" onclick="openModal('Kumar')">👷 Kumar</div>
+            </div>
+        </section>
+
+        <!-- Plumbing Section -->
+        <section id="plumbing" class="service-section">
+            <h2>Please select a plumber:</h2>
+            <div class="worker-cards">
+                <div class="worker-card" onclick="openModal('Senthil')">👷 Senthil</div>
+                <div class="worker-card" onclick="openModal('Navin')">👷 Navin</div>
+            </div>
+        </section>
+
+        <!-- Customer Reviews Section -->
+        <section id="reviews" class="reviews-section">
+            <h2>Customer Reviews</h2>
+            <div class="reviews-container">
+                <div class="review-card">
+                    <img src="assets/images/customer1.jpg" alt="Customer 1" />
+                    <h3>Rajesh K.</h3>
+                    <div class="stars">⭐⭐⭐⭐☆</div>
+                    <p>"Outstanding service! The carpenters were skilled and efficient. Truly reliable!"</p>
+                </div>
+                <div class="review-card">
+                    <img src="assets/images/customer2.jpg" alt="Customer 2" />
+                    <h3>Priya S.</h3>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"The team did an exceptional job. Highly recommend their services!"</p>
+                </div>
+                <div class="review-card">
+                    <img src="assets/images/customer3.jpg" alt="Customer 3" />
+                    <h3>Amit V.</h3>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Beyond impressed! This company has the best team. Truly outstanding!"</p>
+                </div>
+                <div class="review-card">
+                    <img src="assets/images/customer4.jpg" alt="Customer 4" />
+                    <h3>Neha L.</h3>
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Fantastic experience! The service was prompt and professional. Will definitely use them again!"</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal for Worker Confirmation -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <p>You selected <span id="workerName"></span>. Confirm?</p>
+            <button id="confirmBtn">Confirm</button>
+            <button id="cancelBtn">Cancel</button>
+        </div>
+    </div>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/91944976520" target="_blank" class="whatsapp-btn">
+        📱 WhatsApp: 944976520
+    </a>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
