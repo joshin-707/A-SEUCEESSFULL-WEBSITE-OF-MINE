@@ -1,134 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>SGJ Networking and Cabling</title>
-    <link rel="stylesheet" href="css/style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SGJ Networking and Cabling</title>
+
+<style>
+/* ===== GLOBAL ===== */
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+body{
+    background:#2b0000;
+    color:#fff;
+}
+
+/* ===== NAVBAR ===== */
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(0,0,0,0.8);
+    padding:15px;
+}
+.nav-links{
+    list-style:none;
+    display:flex;
+    justify-content:center;
+    gap:30px;
+}
+.nav-links a{
+    text-decoration:none;
+    color:#fff;
+    padding:8px 15px;
+    border-radius:5px;
+}
+.nav-links a:hover,
+.nav-links a.active{
+    background:#d40000;
+}
+
+/* ===== HERO ===== */
+.hero{
+    text-align:center;
+    padding:80px 20px;
+}
+.hero h1{
+    font-size:42px;
+    color:#ff2a2a;
+}
+.tagline{
+    margin:15px 0;
+    font-size:18px;
+}
+.hero-buttons button{
+    padding:12px 25px;
+    margin:10px;
+    border:none;
+    border-radius:6px;
+    background:#d40000;
+    color:#fff;
+    cursor:pointer;
+    font-size:16px;
+}
+.hero-buttons button:hover{
+    background:#ff2a2a;
+}
+
+/* ===== SECTIONS ===== */
+.service-section{
+    background:#f4f4f4;
+    color:#000;
+    padding:50px 20px;
+    margin-top:20px;
+}
+.service-section h2{
+    text-align:center;
+    color:#b30000;
+    margin-bottom:20px;
+}
+
+/* ===== CARDS ===== */
+.worker-cards,
+.service-cards{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+.worker-card,
+.service-card{
+    background:#fff;
+    padding:20px;
+    width:220px;
+    border-radius:10px;
+    text-align:center;
+    cursor:pointer;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+.worker-card:hover{
+    background:#ffd6d6;
+}
+
+/* ===== REVIEWS ===== */
+.reviews-section{
+    background:#fff;
+    color:#000;
+    padding:50px 20px;
+}
+.reviews-container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+}
+.review-card{
+    width:250px;
+    background:#fff;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+.review-card img{
+    width:100%;
+    border-radius:10px;
+}
+.stars{
+    color:gold;
+}
+
+/* ===== MODAL ===== */
+.modal{
+    display:none;
+    position:fixed;
+    top:0;left:0;
+    width:100%;height:100%;
+    background:rgba(0,0,0,0.7);
+}
+.modal-content{
+    background:#fff;
+    color:#000;
+    width:300px;
+    padding:20px;
+    border-radius:10px;
+    text-align:center;
+    margin:15% auto;
+}
+.close{
+    float:right;
+    cursor:pointer;
+    font-size:22px;
+}
+#confirmBtn{
+    background:green;
+    color:#fff;
+    padding:8px 15px;
+    border:none;
+    border-radius:5px;
+}
+#cancelBtn{
+    background:red;
+    color:#fff;
+    padding:8px 15px;
+    border:none;
+    border-radius:5px;
+}
+
+/* ===== WHATSAPP ===== */
+.whatsapp-btn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    color:#fff;
+    padding:15px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:bold;
+}
+</style>
 </head>
+
 <body>
-    <header class="hero">
-        <nav class="navbar">
-            <ul class="nav-links">
-                <li><a href="#electrical" class="tab active">Electrical</a></li>
-                <li><a href="#cabling" class="tab">Cabling</a></li>
-                <li><a href="#carpentry" class="tab">Carpentry</a></li>
-                <li><a href="#plumbing" class="tab">Plumbing</a></li>
-            </ul>
-        </nav>
-        <div class="hero-content">
-            <h1>SGJ Networking and Cabling</h1>
-            <p class="tagline">Providing electrical, cabling, carpentry & plumbing services</p>
-            <div class="hero-buttons">
-                <button>Book Now</button>
-                <button onclick="location.href='#reviews'">Customer Reviews</button>
-            </div>
-        </div>
-    </header>
 
-    <main>
-        <!-- Electrical Section -->
-        <section id="electrical" class="service-section">
-            <h2>Please select an electrician:</h2>
-            <div class="worker-cards">
-                <div class="worker-card" onclick="openModal('Bala')">👷 Bala</div>
-                <div class="worker-card" onclick="openModal('Raju')">👷 Raju</div>
-            </div>
-        </section>
+<!-- NAV -->
+<div class="navbar">
+<ul class="nav-links">
+<li><a href="#electrical" class="active">Electrical</a></li>
+<li><a href="#cabling">Cabling</a></li>
+<li><a href="#carpentry">Carpentry</a></li>
+<li><a href="#plumbing">Plumbing</a></li>
+</ul>
+</div>
 
-        <!-- Cabling Section -->
-        <section id="cabling" class="service-section">
-            <h2>Cabling Services</h2>
-            <div class="service-cards">
-                <div class="service-card">
-                    <h3>LAN Cabling</h3>
-                    <p>Structured LAN wiring solutions.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Fiber Optic</h3>
-                    <p>High-speed fiber optic installation.</p>
-                </div>
-                <div class="service-card">
-                    <h3>CCTV</h3>
-                    <p>Surveillance camera cabling and setup.</p>
-                </div>
-                <div class="service-card">
-                    <h3>WiFi Networking</h3>
-                    <p>Wireless network setup & optimization.</p>
-                </div>
-            </div>
-            <h2>Please select a technician:</h2>
-            <div class="worker-cards">
-                <div class="worker-card" onclick="openModal('Saravanan')">👷 Saravanan</div>
-                <div class="worker-card" onclick="openModal('Kishore')">👷 Kishore</div>
-            </div>
-        </section>
+<!-- HERO -->
+<section class="hero">
+<h1>SGJ Networking and Cabling</h1>
+<p class="tagline">Providing electrical, cabling, carpentry & plumbing services</p>
+<div class="hero-buttons">
+<button>Book Now</button>
+<button onclick="location.href='#reviews'">Customer Reviews</button>
+</div>
+</section>
 
-        <!-- Carpentry Section -->
-        <section id="carpentry" class="service-section">
-            <h2>Please select a carpenter:</h2>
-            <div class="worker-cards">
-                <div class="worker-card" onclick="openModal('Guru')">👷 Guru</div>
-                <div class="worker-card" onclick="openModal('Kumar')">👷 Kumar</div>
-            </div>
-        </section>
+<!-- ELECTRICAL -->
+<section id="electrical" class="service-section">
+<h2>Please select an electrician</h2>
+<div class="worker-cards">
+<div class="worker-card" onclick="openModal('Bala')">👷 Bala</div>
+<div class="worker-card" onclick="openModal('Raju')">👷 Raju</div>
+</div>
+</section>
 
-        <!-- Plumbing Section -->
-        <section id="plumbing" class="service-section">
-            <h2>Please select a plumber:</h2>
-            <div class="worker-cards">
-                <div class="worker-card" onclick="openModal('Senthil')">👷 Senthil</div>
-                <div class="worker-card" onclick="openModal('Navin')">👷 Navin</div>
-            </div>
-        </section>
+<!-- CABLING -->
+<section id="cabling" class="service-section">
+<h2>Cabling Services</h2>
+<div class="service-cards">
+<div class="service-card">LAN Cabling</div>
+<div class="service-card">Fiber Optic</div>
+<div class="service-card">CCTV</div>
+<div class="service-card">WiFi Networking</div>
+</div>
+<h2>Select Technician</h2>
+<div class="worker-cards">
+<div class="worker-card" onclick="openModal('Saravanan')">👷 Saravanan</div>
+<div class="worker-card" onclick="openModal('Kishore')">👷 Kishore</div>
+</div>
+</section>
 
-        <!-- Customer Reviews Section -->
-        <section id="reviews" class="reviews-section">
-            <h2>Customer Reviews</h2>
-            <div class="reviews-container">
-                <div class="review-card">
-                    <img src="assets/images/customer1.jpg" alt="Customer 1" />
-                    <h3>Rajesh K.</h3>
-                    <div class="stars">⭐⭐⭐⭐☆</div>
-                    <p>"Outstanding service! The carpenters were skilled and efficient. Truly reliable!"</p>
-                </div>
-                <div class="review-card">
-                    <img src="assets/images/customer2.jpg" alt="Customer 2" />
-                    <h3>Priya S.</h3>
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p>"The team did an exceptional job. Highly recommend their services!"</p>
-                </div>
-                <div class="review-card">
-                    <img src="assets/images/customer3.jpg" alt="Customer 3" />
-                    <h3>Amit V.</h3>
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p>"Beyond impressed! This company has the best team. Truly outstanding!"</p>
-                </div>
-                <div class="review-card">
-                    <img src="assets/images/customer4.jpg" alt="Customer 4" />
-                    <h3>Neha L.</h3>
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p>"Fantastic experience! The service was prompt and professional. Will definitely use them again!"</p>
-                </div>
-            </div>
-        </section>
-    </main>
+<!-- CARPENTRY -->
+<section id="carpentry" class="service-section">
+<h2>Select Carpenter</h2>
+<div class="worker-cards">
+<div class="worker-card" onclick="openModal('Guru')">👷 Guru</div>
+<div class="worker-card" onclick="openModal('Kumar')">👷 Kumar</div>
+</div>
+</section>
 
-    <!-- Modal for Worker Confirmation -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span id="closeModal" class="close">&times;</span>
-            <p>You selected <span id="workerName"></span>. Confirm?</p>
-            <button id="confirmBtn">Confirm</button>
-            <button id="cancelBtn">Cancel</button>
-        </div>
-    </div>
+<!-- PLUMBING -->
+<section id="plumbing" class="service-section">
+<h2>Select Plumber</h2>
+<div class="worker-cards">
+<div class="worker-card" onclick="openModal('Senthil')">👷 Senthil</div>
+<div class="worker-card" onclick="openModal('Navin')">👷 Navin</div>
+</div>
+</section>
 
-    <!-- WhatsApp Button -->
-    <a href="https://wa.me/91944976520" target="_blank" class="whatsapp-btn">
-        📱 WhatsApp: 944976520
-    </a>
+<!-- REVIEWS -->
+<section id="reviews" class="reviews-section">
+<h2 style="text-align:center;color:#b30000">Customer Reviews</h2>
+<div class="reviews-container">
+<div class="review-card">
+<h3>Rajesh</h3>
+<div class="stars">⭐⭐⭐⭐☆</div>
+<p>Excellent service</p>
+</div>
+<div class="review-card">
+<h3>Priya</h3>
+<div class="stars">⭐⭐⭐⭐⭐</div>
+<p>Very professional</p>
+</div>
+</div>
+</section>
 
-    <script src="js/script.js"></script>
+<!-- MODAL -->
+<div id="modal" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal()">&times;</span>
+<p>You selected <b id="workerName"></b></p>
+<button id="confirmBtn">Confirm</button>
+<button id="cancelBtn" onclick="closeModal()">Cancel</button>
+</div>
+</div>
+
+<!-- WHATSAPP -->
+<a class="whatsapp-btn" href="https://wa.me/91944976520" target="_blank">
+WhatsApp
+</a>
+
+<script>
+function openModal(name){
+document.getElementById("modal").style.display="block";
+document.getElementById("workerName").innerText=name;
+}
+function closeModal(){
+document.getElementById("modal").style.display="none";
+}
+</script>
+
 </body>
 </html>
